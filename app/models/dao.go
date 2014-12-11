@@ -33,7 +33,7 @@ func InitDB() {
 	DAO = Dao{&DB}
 }
 
-func (db *Dao) GetFirst() (*User, error) {
+func (db *Dao) GetFirst() *User {
 	var user User
 
 	if db.DB == nil {
@@ -43,5 +43,5 @@ func (db *Dao) GetFirst() (*User, error) {
 	// Gorm will know to use table "users" ("user" if pluralisation has been disabled) for all operations.
 	db.DB.First(&user)
 
-	return &user, nil
+	return &user
 }

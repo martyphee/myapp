@@ -14,12 +14,8 @@ type App struct {
 func (c App) Index() revel.Result {
 	// E.g finding an existing User
 	var user *models.User
-	var err error
 
-	user, err = models.DAO.GetFirst()
-	if err != nil {
-		panic(err)
-	}
+	user = models.DAO.GetFirst()
 
 	fmt.Println(user)
 
